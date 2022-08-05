@@ -1,28 +1,22 @@
-// import React from "react";
-import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from "react";
+import { createData } from "../utils/api";
+import { ItemList } from "./ItemList";
 
+export const ItemListContainer = () => {
+  const [listaAlimentos, setListaAlimentos] = useState([]);
 
-
-const ItemListContainer = ({ props }) => {
-  const [items, setItems] = useState([])
-
-  useEffect( () => {
-   fetch('https://jsonplaceholder.typicode.com/users%27')
-   .then((response) => response.json())
-   .then((data) => {
-    console.log(data)
-    setItems(data)
-   })
-
-}, [])
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setListaAlimentos(data);
+      });
+  }, []);
 
   return (
     <div>
-      <h1>{props}</h1>
-      <ItemList items={items} />
+      <ItemList listaAlimentos={listaAlimentos} />
     </div>
   );
 };
-
-export default ItemListContainer;

@@ -1,14 +1,16 @@
-import React from "react";
 import "./App.css";
-import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import { ItemListContainer } from "./components/ItemListContainer";
+import { Navbar } from "./components/Navbar";
 
-
-const App = () => {
+function App() {
   return (
     <div>
-      <ItemListContainer props="Lucas"/>
+      <Navbar brand="App Saludable" />
+      <ItemListContainer />
+      <ItemDetailContainer />
     </div>
   );
-};
+}
 
 export default App;
